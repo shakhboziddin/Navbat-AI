@@ -4,65 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NAVBAT AI - Smart Clinic Queue System</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      body { font-family: 'Inter', sans-serif; }
-      html { scroll-behavior: smooth; }
-
-      /* Animation Utilities */
-      .animate-fade-in {
-        animation: fadeIn 0.8s ease-out forwards;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.8s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'fade-in-delayed': 'fadeIn 0.8s ease-out 0.3s forwards',
+              'slide-up-delayed': 'fadeInUp 0.8s ease-out 0.3s forwards',
+              'pulse-slow': 'pulse-custom 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+                '100%': { transform: 'translateY(0px)' },
+              },
+              'pulse-custom': {
+                '0%, 100%': { opacity: '0.5' },
+                '50%': { opacity: '0.1' },
+              }
+            }
+          }
+        }
       }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-      .animate-fade-in-delayed {
-        animation: fadeIn 0.8s ease-out 0.3s forwards;
-        opacity: 0;
-      }
-      .animate-slide-up-delayed {
-        animation: fadeInUp 0.8s ease-out 0.3s forwards;
-        opacity: 0;
-      }
-      .animate-pulse-slow {
-        animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-
-      /* Keyframes */
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 0.1; }
-      }
-    </style>
+    </script>
   <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
   }
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+  <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900 font-sans">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
