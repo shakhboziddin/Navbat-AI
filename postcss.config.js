@@ -1,6 +1,5 @@
 export default {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+    // Plugins disabled to rely on CDN
   },
 }
