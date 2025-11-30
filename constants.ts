@@ -115,7 +115,7 @@ export const CONTENT: Record<Language, ContentData> = {
     },
     hero: {
       title: "NAVBAT AI",
-      subtitle: "O‘zbekiston poliklinikalari uchun AI asosidagi navbat va qabul tizimi. Ovozli AI va aqlli navbat orqali kutish vaqtini qisqartiramiz.",
+      subtitle: "O‘zbekiston poliklinikalari va Klinikalari uchun AI asosidagi navbat va qabul tizimi. Ovozli AI va aqlli navbat orqali kutish vaqtini qisqartiramiz.",
       cta: "Jarayonni Ko‘rish",
     },
     problemSolution: {
