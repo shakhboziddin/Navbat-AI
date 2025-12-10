@@ -1,308 +1,97 @@
-import { ContentData, Language } from './types';
 
-export const CONTENT: Record<Language, ContentData> = {
-  en: {
-    nav: {
-      problem: "Problem & Solution",
-      process: "Patient Flow",
-      team: "Team",
-      whyUs: "Why Us",
-      roadmap: "Roadmap",
-      how: "Tech Stack",
-      cta: "Get Started",
-    },
-    hero: {
-      title: "NAVBAT AI",
-      subtitle: "AI-Powered Queue & Appointment System for Uzbekistan's Polyclinics. Solving the waiting crisis with Voice AI and Smart Queues.",
-      cta: "View Demo Process",
-    },
-    problemSolution: {
-      title: "The Reality of Healthcare Access",
-      problemTitle: "The Problem",
-      problemDesc: "Millions of patients face exhausting wait times and chaotic queues every day.",
-      problemPoints: [
-        "Extremely long waiting times (1–3 hours)",
-        "Patients must stay inside or lose their turn",
-        "High risk of infection in crowded rooms",
-        "Parents struggle with children",
-        "People often visit the wrong doctor",
-        "Receptionists overloaded with manual tasks",
-        "No data on patient flow"
-      ],
-      solutionTitle: "The NAVBAT AI Solution",
-      solutionItems: [
-        "AI Symptom Checker: Talk to AI to find the right doctor",
-        "Real-time Queue Tracking: Know exactly when to arrive",
-        "Instant Booking: No more manual tickets",
-        "Call Center Integration: AI handles phone bookings",
-        "Smart Reminders: SMS/Telegram/Voice calls",
-        "Load Balancing: Evenly distributes patient load",
-        "Reduced Crowding: Wait from home or car"
-      ],
-    },
-    processFlow: {
-      title: "How It Works: Patient Journey",
-      steps: [
-        { title: "Symptom Reporting", desc: "Patient describes symptoms to AI via app or phone call.", icon: "mic" },
-        { title: "Doctor Recommendation", desc: "AI identifies the correct specialist instantly.", icon: "stethoscope" },
-        { title: "Booking", desc: "Patient selects a time slot via app or AI call center.", icon: "calendar" },
-        { title: "Queue Management", desc: "Real-time tracking allows waiting anywhere.", icon: "users" },
-        { title: "Reminders", desc: "AI sends SMS/Call reminders to prevent no-shows.", icon: "bell" },
-        { title: "Clinic Dashboard", desc: "Admin tracks flow; AI optimizes doctor workload.", icon: "bar-chart" },
-      ]
-    },
-    team: {
-      title: "The Developer",
-      roleLabel: "Role",
-      members: [
-        {
-          name: "Shakhboz",
-          role: "Team Lead / Full-Stack Developer",
-          skills: [
-            "Next.js + TSX",
-            "Node.js + Express",
-            "n8n Automation",
-            "OpenAI API",
-            "ElevenLabs Voice AI",
-            "UI/UX Design",
-            "System Architecture"
-          ],
-          links: [{ label: "GitHub", url: "#" }, { label: "LinkedIn", url: "#" }]
-        }
-      ],
-    },
-    whyUs: {
-      title: "Why This Solution Works",
-      points: [
-        "Deep understanding of Uzbek clinic pain points",
-        "Experience with Voice AI (ElevenLabs) for call centers",
-        "Strong Full-Stack & Automation (n8n) skills",
-        "UX designed specifically for parents and seniors",
-        "Real, practical solution for a national urgency"
-      ],
-    },
-    roadmap: {
-      title: "Project Roadmap",
-      stages: [
-        { phase: "Idea", title: "Concept & Research", description: "Analyze clinic pain points, design workflows, study patient behavior." },
-        { phase: "Prototype", title: "Core AI Development", description: "AI symptom checker (Voice/Text), queue logic, demo call center." },
-        { phase: "MVP", title: "System Build", description: "Full web/mobile app, Admin Dashboard, ElevenLabs integration, SMS notifications." },
-        { phase: "Launch", title: "Pilot & Scale", description: "Test in 1–2 polyclinics, gather feedback, optimize load balancing algorithms." },
-      ],
-    },
-    methodology: {
-      title: "Tech Stack & Architecture",
-      techStackTitle: "Technologies",
-      techItems: [
-        { label: "Frontend", value: "Next.js + TypeScript" },
-        { label: "Backend", value: "Node.js + Express" },
-        { label: "Database", value: "MongoDB / Supabase" },
-        { label: "AI Brain", value: "OpenAI (Triage, Chat)" },
-        { label: "Voice AI", value: "ElevenLabs (Call Center)" },
-        { label: "Automation", value: "n8n (Workflows)" },
-      ],
-    },
+import { ContentData } from './types';
+
+export const CONTENT: ContentData = {
+  nav: [
+    { id: 'features', label: "Imkoniyatlar" },
+    { id: 'crm-demo', label: "Klinika Tizimi" },
+    { id: 'booking-demo', label: "Navbat Olish" },
+    { id: 'why-us', label: "Nega Biz?" },
+  ],
+  hero: {
+    title: "Qog‘ozbozlik Tugadi. Klinikangiz Endi Raqamli.",
+    subtitle: "Bemor kartalari, qabul ma’lumotlari va shifokor ishlari — barchasi tartibli, xavfsiz va onlayn. Navbat AI klinikadagi jarayonlarni soddalashtiradi, bemor ma’lumotlarini yo‘qolmasdan saqlaydi va shifokorlarga tezroq hamda xatosiz ishlash imkonini beradi. Endi qog‘ozlar, adashgan kartalar va tartibsizliklarga chek qo‘yiladi.",
+    ctaPrimary: "Tizimni Ko‘rish",
+    ctaSecondary: "Bemor Ilovasini Ko'rish",
   },
-  uz: {
-    nav: {
-      problem: "Muammo va Yechim",
-      process: "Jarayon",
-      team: "Muallif",
-      whyUs: "Nega Biz",
-      roadmap: "Yo‘l Xaritasi",
-      how: "Texnologiyalar",
-      cta: "Boshlash",
-    },
-    hero: {
-      title: "NAVBAT AI",
-      subtitle: "O‘zbekiston poliklinikalari va Klinikalari uchun AI asosidagi navbat va qabul tizimi. Ovozli AI va aqlli navbat orqali kutish vaqtini qisqartiramiz.",
-      cta: "Jarayonni Ko‘rish",
-    },
-    problemSolution: {
-      title: "Tibbiy Xizmatdagi Haqiqat",
-      problemTitle: "Muammo",
-      problemDesc: "Millionlab bemorlar har kuni uzun navbatlar va tartibsizlikdan aziyat chekmoqda.",
-      problemPoints: [
-        "Juda uzun kutish vaqti (1–3 soat)",
-        "Navbatni yo‘qotmaslik uchun poliklinikada o‘tirish shart",
-        "Yuqumli kasalliklar xavfi yuqori",
-        "Yosh bolali ota-onalar uchun qiyinchilik",
-        "Bemorlar ko‘pincha noto‘g‘ri shifokorga kiradi",
-        "Reception xodimlari haddan tashqari yuklangan",
-        "Bemorlar oqimi haqida ma'lumot yo‘q"
-      ],
-      solutionTitle: "NAVBAT AI Yechimi",
-      solutionItems: [
-        "AI Symptom Checker: AI bilan gaplashib to‘g‘ri shifokorni toping",
-        "Real vaqtda kuzatuv: Qachon kelishni aniq bilasiz",
-        "Tezkor bron qilish: Qog‘oz talonlarga hojat yo‘q",
-        "Call Center Integratsiyasi: AI telefon qo‘ng‘iroqlarini qabul qiladi",
-        "Aqlli Eslatmalar: SMS/Telegram/Ovozli qo‘ng‘iroq",
-        "Yuklamani Taqsimlash: Bemorlarni shifokorlar orasida teng bo‘ladi",
-        "Kamroq Tirbandlik: Uydan yoki mashinadan turib navbat kuting"
-      ],
-    },
-    processFlow: {
-      title: "Ishlash Jarayoni",
-      steps: [
-        { title: "Simptomlarni Aytish", desc: "Bemor ilova yoki tel orqali AIga shikoyatini aytadi.", icon: "mic" },
-        { title: "Shifokor Tavsiyasi", desc: "AI kerakli mutaxassisni aniqlaydi.", icon: "stethoscope" },
-        { title: "Qabulga Yozilish", desc: "Ilova yoki AI operator orqali vaqt tanlanadi.", icon: "calendar" },
-        { title: "Navbatni Boshqarish", desc: "Navbatni onlayn kuzatib, istalgan joyda kuting.", icon: "users" },
-        { title: "Eslatmalar", desc: "AI kelish vaqtidan oldin SMS yoki qo‘ng‘iroq qiladi.", icon: "bell" },
-        { title: "Klinika Paneli", desc: "Admin oqimni nazorat qiladi; AI ishni optimallashtiradi.", icon: "bar-chart" },
-      ]
-    },
-    team: {
-      title: "Loyiha Muallifi",
-      roleLabel: "Rol",
-      members: [
-        {
-          name: "Shakhboz",
-          role: "Team Lead / Full-Stack Developer",
-          skills: [
-            "Next.js + TSX",
-            "Node.js + Express",
-            "n8n Automation",
-            "OpenAI API",
-            "ElevenLabs Voice AI",
-            "UI/UX Design"
-          ],
-          links: [{ label: "GitHub", url: "#" }, { label: "LinkedIn", url: "#" }]
-        }
-      ],
-    },
-    whyUs: {
-      title: "Nega Bu Yechim Ishlaydi",
-      points: [
-        "O‘zbekiston poliklinika tizimi muammolarini chuqur tushunish",
-        "Ovozli AI (ElevenLabs) va Call Center tajribasi",
-        "Kuchli Full-Stack va Avtomatlashtirish (n8n) ko‘nikmalari",
-        "Ota-onalar va keksalar uchun maxsus UX dizayn",
-        "Milliy muammo uchun real va amaliy yechim"
-      ],
-    },
-    roadmap: {
-      title: "Loyihani Rivojlantirish",
-      stages: [
-        { phase: "G‘oya", title: "Konseptsiya va Tahlil", description: "Muammolarni o‘rganish, jarayonlarni loyihalash, bemorlarni tahlil qilish." },
-        { phase: "Prototip", title: "Asosiy AI Ishlanmasi", description: "AI simptom tekshiruvi (Ovoz/Matn), navbat logikasi, demo call center." },
-        { phase: "MVP", title: "Tizimni Qurish", description: "Veb/Mobil ilova, Admin panel, ElevenLabs integratsiyasi, SMS xabarlar." },
-        { phase: "Launch", title: "Sinov va Kengaytirish", description: "1–2 poliklinikada sinov, fikrlar yig‘ish, algoritmni optimallashtirish." },
-      ],
-    },
-    methodology: {
-      title: "Texnologik Arxitektura",
-      techStackTitle: "Texnologiyalar",
-      techItems: [
-        { label: "Frontend", value: "Next.js + TypeScript" },
-        { label: "Backend", value: "Node.js + Express" },
-        { label: "Ma'lumotlar bazasi", value: "MongoDB / Supabase" },
-        { label: "AI Miya", value: "OpenAI (Triage, Chat)" },
-        { label: "Ovozli AI", value: "ElevenLabs (Call Center)" },
-        { label: "Avtomatlashtirish", value: "n8n (Jarayonlar)" },
-      ],
-    },
+  features: {
+    title: "Klinika Uchun Raqamli Yechimlar",
+    subtitle: "Shifokorlar va ma'muriyat ishini yengillashtiruvchi zamonaviy vositalar.",
+    items: [
+      {
+        title: "Elektron Bemor Kartasi",
+        description: "Barcha tashriflar tarixi, tashxislar va tayinlovlar yagona xavfsiz bazada saqlanadi. Qog'oz kartalarga hojat yo'q.",
+        icon: "database"
+      },
+      {
+        title: "Klinika Boshqaruvi (CRM)",
+        description: "Shifokorlar yuklamasini nazorat qilish, moliyaviy hisobotlar va xodimlar faoliyatini kuzatish imkoniyati.",
+        icon: "monitor"
+      },
+      {
+        title: "Avtomatik Eslatmalar",
+        description: "Bemorlarga qabul vaqti haqida SMS eslatmalar yuborish orqali kelmay qolish holatlarini kamaytirish.",
+        icon: "bell"
+      },
+      {
+        title: "Onlayn Navbat",
+        description: "Bemorlar uchun masofadan navbat olish va qabulga yozilish tizimi — navbat kutish zalidagi tartibsizlikka yechim.",
+        icon: "smartphone"
+      }
+    ]
   },
-  ru: {
-    nav: {
-      problem: "Проблема и Решение",
-      process: "Процесс",
-      team: "Автор",
-      whyUs: "Почему Мы",
-      roadmap: "Дорожная Карта",
-      how: "Технологии",
-      cta: "Начать",
-    },
-    hero: {
-      title: "NAVBAT AI",
-      subtitle: "Система управления очередями и записью с ИИ для поликлиник Узбекистана. Решаем проблему очередей с помощью голосового ИИ.",
-      cta: "Смотреть Процесс",
-    },
-    problemSolution: {
-      title: "Реальность Доступа к Медицине",
-      problemTitle: "Проблема",
-      problemDesc: "Миллионы пациентов ежедневно сталкиваются с изнурительными очередями и хаосом.",
-      problemPoints: [
-        "Чрезвычайно долгое ожидание (1–3 часа)",
-        "Нужно сидеть в клинике, чтобы не пропустить очередь",
-        "Высокий риск инфекции в толпе",
-        "Родителям сложно с детьми",
-        "Люди часто идут не к тому врачу",
-        "Регистратура перегружена рутиной",
-        "Нет данных о потоке пациентов"
+  bookingDemo: {
+    title: "Bemorlar Uchun Ilova",
+    subtitle: "Bemorlaringiz uydan chiqmasdan shifokor qabuliga yozilishi mumkin. Bu navbat kutish zalidagi tirbandlikni oldini oladi.",
+    departments: [
+      { id: 'therapy', name: 'Terapiya', icon: 'stethoscope' },
+      { id: 'dentist', name: 'Stomatologiya', icon: 'tooth' },
+      { id: 'cardio', name: 'Kardiologiya', icon: 'heart' },
+      { id: 'pediatric', name: 'Pediatriya', icon: 'baby' },
+    ],
+    doctors: {
+      therapy: [
+        { id: 'd1', name: 'Dr. Azimov', specialty: 'Terapevt Oliy Toifa', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=d1' },
+        { id: 'd2', name: 'Dr. Karimova', specialty: 'Umumiy Amaliyot', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=d2' },
       ],
-      solutionTitle: "Решение NAVBAT AI",
-      solutionItems: [
-        "AI Symptom Checker: Говорите с ИИ, чтобы найти врача",
-        "Отслеживание очереди: Знайте точно, когда прийти",
-        "Мгновенная запись: Никаких бумажных талонов",
-        "Интеграция Call-центра: ИИ принимает звонки",
-        "Умные напоминания: SMS/Telegram/Голосовые звонки",
-        "Балансировка нагрузки: Равномерное распределение пациентов",
-        "Меньше толпы: Ждите дома или в машине"
+      dentist: [
+        { id: 'd3', name: 'Dr. Sobirov', specialty: 'Stomatolog-Xirurg', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=d3' },
       ],
-    },
-    processFlow: {
-      title: "Как Это Работает: Путь Пациента",
-      steps: [
-        { title: "Симптомы", desc: "Пациент описывает симптомы ИИ через приложение или по телефону.", icon: "mic" },
-        { title: "Рекомендация Врача", desc: "ИИ мгновенно определяет нужного специалиста.", icon: "stethoscope" },
-        { title: "Запись", desc: "Выбор времени через приложение или голосового ИИ-агента.", icon: "calendar" },
-        { title: "Управление Очередью", desc: "Отслеживание в реальном времени, ожидание в любом месте.", icon: "users" },
-        { title: "Напоминания", desc: "ИИ отправляет SMS/звонок, чтобы избежать неявок.", icon: "bell" },
-        { title: "Дашборд Клиники", desc: "Админ видит поток; ИИ оптимизирует нагрузку врачей.", icon: "bar-chart" },
+      cardio: [
+        { id: 'd4', name: 'Dr. Ismoilov', specialty: 'Kardiolog', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=d4' },
+      ],
+      pediatric: [
+        { id: 'd5', name: 'Dr. Tursunova', specialty: 'Pediatr', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=d5' },
       ]
-    },
-    team: {
-      title: "Автор Проекта",
-      roleLabel: "Роль",
-      members: [
-        {
-          name: "Shakhboz",
-          role: "Team Lead / Full-Stack Developer",
-          skills: [
-            "Next.js + TSX",
-            "Node.js + Express",
-            "n8n Automation",
-            "OpenAI API",
-            "ElevenLabs Voice AI",
-            "UI/UX Design"
-          ],
-          links: [{ label: "GitHub", url: "#" }, { label: "LinkedIn", url: "#" }]
-        }
-      ],
-    },
-    whyUs: {
-      title: "Почему Это Решение Работает",
-      points: [
-        "Глубокое понимание проблем поликлиник Узбекистана",
-        "Опыт работы с Голосовым ИИ (ElevenLabs) для колл-центров",
-        "Сильные навыки Full-Stack и Автоматизации (n8n)",
-        "UX, разработанный специально для родителей и пожилых",
-        "Реальное, практичное решение национальной проблемы"
-      ],
-    },
-    roadmap: {
-      title: "Дорожная Карта",
-      stages: [
-        { phase: "Идея", title: "Концепция и Анализ", description: "Изучение проблем, проектирование процессов, анализ поведения пациентов." },
-        { phase: "Прототип", title: "Разработка Ядра ИИ", description: "ИИ проверка симптомов (Голос/Текст), логика очереди, демо колл-центра." },
-        { phase: "MVP", title: "Создание Системы", description: "Веб/Моб приложение, Админ-панель, интеграция ElevenLabs, SMS уведомления." },
-        { phase: "Запуск", title: "Пилот и Масштабирование", description: "Тест в 1–2 поликлиниках, сбор отзывов, оптимизация алгоритмов." },
-      ],
-    },
-    methodology: {
-      title: "Технологический Стек",
-      techStackTitle: "Технологии",
-      techItems: [
-        { label: "Frontend", value: "Next.js + TypeScript" },
-        { label: "Backend", value: "Node.js + Express" },
-        { label: "База данных", value: "MongoDB / Supabase" },
-        { label: "ИИ Мозг", value: "OpenAI (Триаж, Чат)" },
-        { label: "Голосовой ИИ", value: "ElevenLabs (Call Center)" },
-        { label: "Автоматизация", value: "n8n (Воркфлоу)" },
-      ],
-    },
+    }
   },
+  crmDemo: {
+    title: "Klinika Boshqaruv Tizimi",
+    subtitle: "Klinika rahbarlari va shifokorlar uchun yagona nazorat markazi. Barcha jarayonlarni oson boshqaring.",
+    stats: [
+      { label: "Bugungi tashriflar", value: "42", change: "+12%", isPositive: true, icon: "users" },
+      { label: "Elektron kartalar", value: "1,240", change: "+85", isPositive: true, icon: "database" },
+      { label: "O'rtacha qabul", value: "15 daq", change: "-5%", isPositive: true, icon: "clock" },
+      { label: "Samaradorlik", value: "98%", change: "A'lo", isPositive: true, icon: "check" },
+    ],
+    patients: [
+      { id: "P-001", name: "Sardor Rahimov", time: "09:30", status: "in-progress", department: "Terapiya", doctor: "Dr. Azimov" },
+      { id: "P-002", name: "Malika Aliyeva", time: "10:00", status: "waiting", department: "Kardiologiya", doctor: "Dr. Ismoilov" },
+      { id: "P-003", name: "Jasur Bek", time: "10:15", status: "waiting", department: "Stomatologiya", doctor: "Dr. Sobirov" },
+      { id: "P-004", name: "Dilnoza K.", time: "11:00", status: "cancelled", department: "Terapiya", doctor: "Dr. Azimov" },
+      { id: "P-005", name: "Aziz T.", time: "09:00", status: "completed", department: "Pediatriya", doctor: "Dr. Tursunova" },
+    ]
+  },
+  whyUs: {
+    title: "Nima uchun klinikalar bizni tanlaydi?",
+    items: [
+      { title: "Ish jarayonlari soddalashadi", description: "Qog'ozbozlik va tartibsiz navbatlar yo'qoladi. Barcha ma'lumotlar raqamlashtirilgan." },
+      { title: "Bemorlar kam kutadi", description: "Aniq vaqtga belgilangan qabullar orqali kutish zallaridagi tirbandlik 40% ga kamayadi." },
+      { title: "Klinikaga bo‘lgan ishonch ortadi", description: "Zamonaviy xizmat ko'rsatish tizimi mijozlarning sodiqligini va klinika nufuzini oshiradi." }
+    ]
+  },
+  testimonials: {
+    title: "",
+    items: []
+  }
 };

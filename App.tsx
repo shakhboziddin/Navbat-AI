@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import { CONTENT } from './constants';
-import { Language } from './types';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ProblemSolution from './components/ProblemSolution';
-import ProcessFlow from './components/ProcessFlow';
+import Features from './components/Features';
+import BookingDemo from './components/BookingDemo';
+import DashboardDemo from './components/DashboardDemo';
 import WhyUs from './components/WhyUs';
-import Team from './components/Team';
-import Roadmap from './components/Roadmap';
-import Methodology from './components/Methodology';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<Language>('uz');
-  const content = CONTENT[lang];
+  const content = CONTENT;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
-      <Navbar content={content} lang={lang} setLang={setLang} />
+    <div className="min-h-screen bg-white flex flex-col font-sans text-slate-900">
+      <Navbar navItems={content.nav} />
       <main className="flex-grow">
-        <Hero content={content} />
-        <ProblemSolution content={content} />
-        <ProcessFlow content={content} />
-        <WhyUs content={content} />
-        <Team content={content} />
-        <Roadmap content={content} />
-        <Methodology content={content} />
+        <Hero hero={content.hero} />
+        <Features features={content.features} />
+        <DashboardDemo content={content.crmDemo} />
+        <BookingDemo content={content.bookingDemo} />
+        <WhyUs content={content.whyUs} />
       </main>
       <Footer />
     </div>

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { ContentData, Language } from '../types';
-import LanguageSwitcher from './LanguageSwitcher';
+import { NavItem } from '../types';
 import { Activity, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  content: ContentData;
-  lang: Language;
-  setLang: (l: Language) => void;
+  navItems: NavItem[];
 }
 
-const Navbar: React.FC<NavbarProps> = ({ content, lang, setLang }) => {
+const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
@@ -18,54 +15,50 @@ const Navbar: React.FC<NavbarProps> = ({ content, lang, setLang }) => {
     setIsMenuOpen(false);
   };
 
-  const navItems = [
-    { id: 'problem', label: content.nav.problem },
-    { id: 'process', label: content.nav.process },
-    { id: 'team', label: content.nav.team },
-    { id: 'why-us', label: content.nav.whyUs },
-    { id: 'roadmap', label: content.nav.roadmap },
-    { id: 'how-it-works', label: content.nav.how },
-  ];
+  const handleLogin = () => {
+    // In this demo, "Login" takes you to the dashboard simulation
+    scrollToSection('dashboard');
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
-              <Activity size={24} />
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+            <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+              <Activity size={20} />
             </div>
-            <span className="font-extrabold text-2xl text-slate-900 tracking-tight">NAVBAT AI</span>
+            <span className="font-bold text-xl text-brand-dark tracking-tight">Navbat AI</span>
           </div>
           
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6">
                 {navItems.map((item) => (
                 <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors"
+                    className="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors"
                 >
                     {item.label}
                 </button>
                 ))}
             </div>
-            <div className="h-6 w-px bg-slate-200"></div>
-            <LanguageSwitcher currentLang={lang} onLanguageChange={setLang} />
+            <button 
+              onClick={handleLogin}
+              className="px-5 py-2.5 rounded-xl bg-brand-dark text-white text-sm font-semibold hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20"
+            >
+              Kirish
+            </button>
           </div>
 
           {/* Mobile Nav Toggle */}
-          <div className="lg:hidden flex items-center gap-4">
-             <div className="scale-90 origin-right">
-                <LanguageSwitcher currentLang={lang} onLanguageChange={setLang} />
-             </div>
+          <div className="md:hidden flex items-center">
              <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                className="p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors border border-transparent hover:border-slate-200"
-                aria-label="Toggle menu"
+                className="p-2 text-slate-600 hover:bg-slate-100 rounded-lg"
              >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
              </button>
@@ -73,20 +66,24 @@ const Navbar: React.FC<NavbarProps> = ({ content, lang, setLang }) => {
         </div>
       </div>
       
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl flex flex-col animate-fade-in-up">
-            <div className="p-4 space-y-1">
-                {navItems.map((item) => (
-                <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="w-full text-left font-semibold text-lg text-slate-700 py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-blue-600 transition-all"
-                >
-                    {item.label}
-                </button>
-                ))}
-            </div>
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl flex flex-col p-4 animate-fade-in-up">
+            {navItems.map((item) => (
+            <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="w-full text-left font-medium text-slate-700 py-3 px-4 rounded-lg hover:bg-slate-50 hover:text-brand-blue"
+            >
+                {item.label}
+            </button>
+            ))}
+             <button 
+                onClick={handleLogin}
+                className="mt-4 w-full bg-brand-dark text-white px-4 py-3 rounded-lg font-medium shadow-md"
+            >
+              Tizimga kirish
+            </button>
         </div>
       )}
     </nav>
